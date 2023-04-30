@@ -4,8 +4,7 @@ import {
   ApolloProvider as Provider,
 } from "@apollo/client";
 import { FC, PropsWithChildren } from "react";
-
-const endpoint = "https://flyby-router-demo.herokuapp.com/";
+import { endpoint } from "~/constants";
 
 const client = new ApolloClient({
   uri: endpoint,
