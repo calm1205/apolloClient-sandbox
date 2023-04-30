@@ -9,6 +9,11 @@ import { endpoint } from "~/constants";
 const client = new ApolloClient({
   uri: endpoint,
   cache: new InMemoryCache(),
+  defaultOptions: {
+    watchQuery: {
+      fetchPolicy: "network-only",
+    },
+  },
 });
 
 export const ApolloProvider: FC<PropsWithChildren> = ({ children }) => (

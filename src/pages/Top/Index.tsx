@@ -1,6 +1,6 @@
-import { useEffect, useLayoutEffect, useRef } from "react";
 import { useRocketsQuery } from "~/generated";
 import { Histories } from "./Histories";
+import { Spacer } from "~/components";
 
 /** 重めの処理 */
 const heavyFunction = Math.max(...[...Array(20000)].map((_, i) => i));
@@ -9,11 +9,7 @@ const heavyFunction = Math.max(...[...Array(20000)].map((_, i) => i));
  * トップページ
  */
 export const Top = () => {
-  const start = Date.now();
-  const { loading, data } = useRocketsQuery({ fetchPolicy: "network-only" });
-
-  useEffect(() => console.log("calculated", Date.now() - start, "ms"));
-  useLayoutEffect(() => console.log("displayed", Date.now() - start, "ms"));
+  const { loading, data } = useRocketsQuery();
   if (loading) return <p> Loading... </p>;
 
   return (
@@ -26,7 +22,7 @@ export const Top = () => {
         </div>
       ))}
 
-      <Spacer />
+      <Spacer size={50} />
 
       <Histories />
     </div>
@@ -38,4 +34,3 @@ const wrap: React.CSSProperties = {
   flexDirection: "column",
   gap: 20,
 };
-const Spacer = () => <div style={{ height: 50 }}></div>;
