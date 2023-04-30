@@ -1320,12 +1320,52 @@ export type Uuid_Comparison_Exp = {
   _nin?: InputMaybe<Array<Scalars['uuid']>>;
 };
 
+export type HistoriesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type HistoriesQuery = { __typename?: 'Query', histories?: Array<{ __typename?: 'History', title?: string | null, details?: string | null } | null> | null };
+
 export type RocketsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type RocketsQuery = { __typename?: 'Query', rockets?: Array<{ __typename?: 'Rocket', id?: string | null, name?: string | null, description?: string | null } | null> | null };
 
 
+export const HistoriesDocument = gql`
+    query Histories {
+  histories {
+    title
+    details
+  }
+}
+    `;
+
+/**
+ * __useHistoriesQuery__
+ *
+ * To run a query within a React component, call `useHistoriesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useHistoriesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useHistoriesQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useHistoriesQuery(baseOptions?: Apollo.QueryHookOptions<HistoriesQuery, HistoriesQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<HistoriesQuery, HistoriesQueryVariables>(HistoriesDocument, options);
+      }
+export function useHistoriesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<HistoriesQuery, HistoriesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<HistoriesQuery, HistoriesQueryVariables>(HistoriesDocument, options);
+        }
+export type HistoriesQueryHookResult = ReturnType<typeof useHistoriesQuery>;
+export type HistoriesLazyQueryHookResult = ReturnType<typeof useHistoriesLazyQuery>;
+export type HistoriesQueryResult = Apollo.QueryResult<HistoriesQuery, HistoriesQueryVariables>;
 export const RocketsDocument = gql`
     query Rockets {
   rockets {
