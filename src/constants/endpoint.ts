@@ -1,2 +1,2 @@
 /** graphqlのendpoint */
-export const endpoint = "https://flyby-router-demo.herokuapp.com";
+export const endpoint = "https://spacex-production.up.railway.app";

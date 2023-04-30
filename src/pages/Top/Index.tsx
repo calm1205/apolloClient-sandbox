@@ -1,31 +1,22 @@
-import { useQuery } from "@apollo/client";
-import { GET_LOCATIONS, GetLocations } from "~/graphql";
+import { useRocketsQuery } from "~/generated";
 
 export const Top = () => {
-  const { loading, error, data } = useQuery<GetLocations>(GET_LOCATIONS);
+  const { loading, error, data } = useRocketsQuery();
 
-  if (loading) return <p> Loading... </p>;
-  if (error) return <p> Error: {error.message}</p>;
+  // if (loading) return <p> Loading... </p>;
+  // if (error) return <p> Error: {error.message}</p>;
 
-  const locations = data?.locations;
+  const rockets = data?.rockets?.filter((r) => r) ?? [];
 
   console.log("render");
 
   return (
     <div>
-      {!!locations || <p>no data</p>}
-      {locations?.map((l) => (
-        <div key={l.id}>
-          <img
-            width="400"
-            height="250"
-            alt="location-reference"
-            src={`${l.photo}`}
-          />
-          <br />
-          <b>About this location:</b>
-          <p>{l.description}</p>
-          <br />
+      {!!rockets.length || <p>no data</p>}
+      {rockets.map((rocket) => (
+        <div key={rocket?.id}>
+          <b>{rocket?.name}</b>
+          <p>{rocket?.description}</p>
         </div>
       ))}
     </div>
