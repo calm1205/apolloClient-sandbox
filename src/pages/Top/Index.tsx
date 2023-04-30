@@ -1,3 +1,3 @@
-export const App = () => {
+export const Top = () => {
   return <h1>hello world</h1>;
 };
