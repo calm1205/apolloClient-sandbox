@@ -1,5 +1,5 @@
 import { useQuery } from "@apollo/client";
-import { GET_LOCATIONS, GetLocations } from "../../graphql";
+import { GET_LOCATIONS, GetLocations } from "~/graphql";
 
 export const Top = () => {
   const { loading, error, data } = useQuery<GetLocations>(GET_LOCATIONS);
