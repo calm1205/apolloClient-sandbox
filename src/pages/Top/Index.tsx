@@ -1,24 +1,32 @@
+import { useEffect, useLayoutEffect, useRef } from "react";
 import { useRocketsQuery } from "~/generated";
 
+/** 重めの処理 */
+const heavyFunction = () =>
+  [...Array(20000)].forEach((i) => console.log("heavyData"));
+
+/**
+ * トップページ
+ */
 export const Top = () => {
-  const { loading, error, data } = useRocketsQuery();
+  const { loading, data } = useRocketsQuery({ fetchPolicy: "network-only" });
 
   // if (loading) return <p> Loading... </p>;
-  // if (error) return <p> Error: {error.message}</p>;
+  const ref = useRef(Date.now());
+  useEffect(() => console.log("calculated", Date.now() - ref.current, "ms"));
+  useLayoutEffect(() => console.log("mounted", Date.now() - ref.current, "ms"));
 
-  const rockets = data?.rockets?.filter((r) => r) ?? [];
-
-  console.log("render");
+  heavyFunction();
+  console.log("render", Date.now() - ref.current, "ms");
 
   return (
     <div>
-      {!!rockets.length || <p>no data</p>}
-      {rockets.map((rocket) => (
+      {data?.rockets?.map((rocket) => (
         <div key={rocket?.id}>
-          <b>{rocket?.name}</b>
-          <p>{rocket?.description}</p>
+          <b>{rocket?.name ?? "--"}</b>
+          <p>{rocket?.description ?? "--"}</p>
         </div>
-      ))}
+      )) ?? <p>Loading...</p>}
     </div>
   );
 };
