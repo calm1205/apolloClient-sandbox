@@ -10,6 +10,7 @@ export { Histories } from "./parts/Histories";
 export { Top } from "./pages/Top/Index";
 export { ApolloBestPractice } from "./pages/ApolloBestPractice/Index";
 export { LazyQuery } from "./pages/LazyQuery/Index";
+export { ApolloSuspense } from "./pages/ApolloSuspense/Index";
 
 /**
  * provider

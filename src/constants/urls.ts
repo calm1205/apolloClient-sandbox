@@ -5,4 +5,5 @@ export const urls = {
   top: "/",
   apolloBest: "apolloBest",
   lazyQuery: "lazyQuery",
+  apolloSuspense: "apolloSuspense",
 };
