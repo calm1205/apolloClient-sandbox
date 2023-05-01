@@ -11,7 +11,7 @@ import { Histories } from "./components/Histories";
 /**
  * 並列でquery呼び出し
  */
-export const DoubleQuery = () => {
+export const ParallelQuery = () => {
   const rockets = useRocketsQuery();
   const company = useCompanyQuery();
   const histories = useHistoriesQuery();

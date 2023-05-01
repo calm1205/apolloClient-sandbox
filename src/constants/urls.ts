@@ -6,5 +6,5 @@ export const urls = {
   apolloBest: "apolloBest",
   lazyQuery: "lazyQuery",
   apolloSuspense: "apolloSuspense",
-  doubleQuery: "doubleQuery",
+  parallelQuery: "parallelQuery",
 };
