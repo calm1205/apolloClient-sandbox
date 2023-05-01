@@ -2,7 +2,8 @@
  * parts
  */
 export { Spacer } from "./parts/Spacer";
-export { Histories } from "./parts/Histories";
+export { Company } from "./parts/Company/Company";
+export { Histories } from "./parts/Histories/Histories";
 
 /**
  * page

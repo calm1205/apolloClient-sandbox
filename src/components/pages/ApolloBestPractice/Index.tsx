@@ -1,6 +1,7 @@
 import { useRocketsQuery } from "~/generated";
-import { Histories, Spacer } from "~/components";
+import { Company, Spacer } from "~/components";
 import { heavyFunction } from "~/lib";
+import { wrapStyle } from "./Index.style";
 
 /**
  * Apollo clientのbest practice
@@ -16,18 +17,20 @@ export const ApolloBestPractice = () => {
   if (loading) return <p> Loading... </p>;
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+    <>
       <h1>Rocket List</h1>
-      {data?.rockets?.map((rocket) => (
-        <div key={rocket?.id}>
-          <b>{rocket?.name ?? "--"}</b>
-          <p>{rocket?.description ?? "--"}</p>
-        </div>
-      ))}
+      <div style={wrapStyle}>
+        {data?.rockets?.map((rocket) => (
+          <div key={rocket?.id}>
+            <b>{rocket?.name ?? "--"}</b>
+            <p>{rocket?.description ?? "--"}</p>
+          </div>
+        ))}
 
-      <Spacer size={50} />
+        <Spacer size={50} />
 
-      <Histories />
-    </div>
+        <Company />
+      </div>
+    </>
   );
 };
