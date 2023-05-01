@@ -1,15 +1,21 @@
 import { useRocketsQuery } from "~/generated";
-import { Histories } from "./Histories";
-import { Spacer } from "~/components";
+import { Histories, Spacer } from "~/components";
+import { useEffect } from "react";
+import { wrap } from "./Index.style";
 
 /** 重めの処理 */
-const heavyFunction = Math.max(...[...Array(20000)].map((_, i) => i));
+const heavyFunction = () =>
+  [...Array(10000)].forEach(() => console.log("render"));
 
 /**
  * トップページ
  */
 export const Top = () => {
   const { loading, data } = useRocketsQuery();
+
+  console.log("render parent");
+  useEffect(() => heavyFunction(), [data]);
+
   if (loading) return <p> Loading... </p>;
 
   return (
@@ -27,10 +33,4 @@ export const Top = () => {
       <Histories />
     </div>
   );
-};
-
-const wrap: React.CSSProperties = {
-  display: "flex",
-  flexDirection: "column",
-  gap: 20,
 };

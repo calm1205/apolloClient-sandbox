@@ -7,7 +7,9 @@ import { useHistoriesQuery } from "~/generated";
 export const Histories: React.FC = () => {
   const { loading, data } = useHistoriesQuery();
 
+  console.log("render history");
   if (loading) return <p>Loading...</p>;
+
   return (
     <div style={wrapStyle}>
       <h1>Rockets Histories</h1>
