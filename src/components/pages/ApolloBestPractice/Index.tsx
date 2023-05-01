@@ -29,7 +29,9 @@ export const ApolloBestPractice = () => {
 
   return (
     <>
-      <h1 onClick={count}>Rocket List</h1>
+      <h1 onClick={count} style={{ cursor: "pointer" }}>
+        Rocket List
+      </h1>
       <div style={wrapStyle}>
         {rockets?.map((rocket) => (
           <div key={rocket?.id}>
