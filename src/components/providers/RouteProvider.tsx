@@ -5,6 +5,7 @@ import {
 import {
   ApolloBestPractice,
   ApolloSuspense,
+  DoubleQuery,
   LazyQuery,
   Top,
 } from "~/components";
@@ -16,6 +17,7 @@ export const RouteProvider = () => {
     { path: urls.apolloBest, element: <ApolloBestPractice /> },
     { path: urls.lazyQuery, element: <LazyQuery /> },
     { path: urls.apolloSuspense, element: <ApolloSuspense /> },
+    { path: urls.doubleQuery, element: <DoubleQuery /> },
   ]);
   return <Provider router={router} />;
 };

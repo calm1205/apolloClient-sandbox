@@ -5,6 +5,7 @@ const links: Links = [
   { to: urls.apolloBest, text: "apollo clientのbest practice" },
   { to: urls.lazyQuery, text: "lazyQueryを無理やりuseEffectで制御" },
   { to: urls.apolloSuspense, text: "experimentalなuseSuspenseQuery" },
+  { to: urls.doubleQuery, text: "topで必要なqueryを並列呼び出し" },
 ];
 
 /**
