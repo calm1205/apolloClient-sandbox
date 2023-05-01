@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { useCompanyQuery } from "~/generated";
 import { Histories } from "../Histories/Histories";
 import { wrapStyle } from "./Company.style";

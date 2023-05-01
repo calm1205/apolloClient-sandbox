@@ -1,7 +1,7 @@
 import { useRocketsQuery } from "~/generated";
 import { Company, Spacer } from "~/components";
-import { heavyFunction } from "~/lib";
 import { wrapStyle } from "./Index.style";
+import { useState } from "react";
 
 /**
  * Apollo clientのbest practice
@@ -10,15 +10,16 @@ import { wrapStyle } from "./Index.style";
  */
 export const ApolloBestPractice = () => {
   const { loading, data } = useRocketsQuery();
+  const [, setState] = useState(0);
+  const count = () => setState((pre) => pre + 1);
 
   console.log("render parent");
-  heavyFunction();
 
   if (loading) return <p> Loading... </p>;
 
   return (
     <>
-      <h1>Rocket List</h1>
+      <h1 onClick={count}>Rocket List</h1>
       <div style={wrapStyle}>
         {data?.rockets?.map((rocket) => (
           <div key={rocket?.id}>
