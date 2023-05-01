@@ -1,22 +1,22 @@
 import { useRocketsQuery } from "~/generated";
 import { Histories, Spacer } from "~/components";
-import { useEffect } from "react";
-import { wrap } from "./Index.style";
 import { heavyFunction } from "~/lib";
 
 /**
  * Apollo clientのbest practice
+ *
+ * parentのrenderは2回（loading: true → false）
  */
 export const ApolloBestPractice = () => {
   const { loading, data } = useRocketsQuery();
 
   console.log("render parent");
-  useEffect(() => heavyFunction(), [data]);
+  heavyFunction();
 
   if (loading) return <p> Loading... </p>;
 
   return (
-    <div style={wrap}>
+    <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
       <h1>Rocket List</h1>
       {data?.rockets?.map((rocket) => (
         <div key={rocket?.id}>
