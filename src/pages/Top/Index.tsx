@@ -2,10 +2,7 @@ import { useRocketsQuery } from "~/generated";
 import { Histories, Spacer } from "~/components";
 import { useEffect } from "react";
 import { wrap } from "./Index.style";
-
-/** 重めの処理 */
-const heavyFunction = () =>
-  [...Array(10000)].forEach(() => console.log("render"));
+import { heavyFunction } from "~/lib";
 
 /**
  * トップページ

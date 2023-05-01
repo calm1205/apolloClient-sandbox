@@ -1,0 +1,1 @@
+export { heavyFunction } from "./heavy";
