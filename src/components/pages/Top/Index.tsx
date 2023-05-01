@@ -1,33 +1,30 @@
-import { useRocketsQuery } from "~/generated";
 import { Histories, Spacer } from "~/components";
-import { useEffect } from "react";
-import { wrap } from "./Index.style";
-import { heavyFunction } from "~/lib";
+
+type Links = { to: string; text: string }[];
+const links: Links = [
+  { to: "apolloBest", text: "apollo clientのbest practice" },
+  { to: "lazyEffect", text: "lazyQueryを無理やりuseEffectで制御" },
+];
 
 /**
  * トップページ
  */
-export const Top = () => {
-  const { loading, data } = useRocketsQuery();
-
-  console.log("render parent");
-  useEffect(() => heavyFunction(), [data]);
-
-  if (loading) return <p> Loading... </p>;
-
-  return (
-    <div style={wrap}>
-      <h1>Rocket List</h1>
-      {data?.rockets?.map((rocket) => (
-        <div key={rocket?.id}>
-          <b>{rocket?.name ?? "--"}</b>
-          <p>{rocket?.description ?? "--"}</p>
-        </div>
+export const Top = () => (
+  <>
+    <h1>Apollo Client</h1>
+    <ul style={ulStyle}>
+      {links.map(({ to, text }) => (
+        <li key={to}>
+          <a href={to}>{text}</a>
+        </li>
       ))}
+    </ul>
+  </>
+);
 
-      <Spacer size={50} />
-
-      <Histories />
-    </div>
-  );
+const ulStyle: React.CSSProperties = {
+  display: "flex",
+  flexDirection: "column",
+  gap: 20,
+  padding: 20,
 };
