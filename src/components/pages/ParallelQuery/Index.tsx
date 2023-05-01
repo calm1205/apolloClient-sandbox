@@ -10,6 +10,8 @@ import { Histories } from "./components/Histories";
 
 /**
  * 並列でquery呼び出し
+ *
+ * isLoadingでqueryの呼び出しを待ってからchildrenをrenderしないとqueryの数だけchildrenのrenderが波及する。
  */
 export const ParallelQuery = () => {
   const rockets = useRocketsQuery();
