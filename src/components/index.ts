@@ -8,6 +8,8 @@ export { Histories } from "./parts/Histories";
  * page
  */
 export { Top } from "./pages/Top/Index";
+export { ApolloBestPractice } from "./pages/ApolloBestPractice/Index";
+export { LazyQuery } from "./pages/LazyQuery/Index";
 
 /**
  * provider

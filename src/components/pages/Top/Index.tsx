@@ -1,9 +1,9 @@
-import { Histories, Spacer } from "~/components";
+import { urls } from "~/constants";
 
 type Links = { to: string; text: string }[];
 const links: Links = [
-  { to: "apolloBest", text: "apollo clientのbest practice" },
-  { to: "lazyEffect", text: "lazyQueryを無理やりuseEffectで制御" },
+  { to: urls.apolloBest, text: "apollo clientのbest practice" },
+  { to: urls.lazyQuery, text: "lazyQueryを無理やりuseEffectで制御" },
 ];
 
 /**
