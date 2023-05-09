@@ -10,12 +10,8 @@ const client = new ApolloClient({
   uri: endpoint,
   cache: new InMemoryCache(),
   defaultOptions: {
-    query: {
-      fetchPolicy: "network-only",
-    },
-    watchQuery: {
-      fetchPolicy: "network-only",
-    },
+    query: { fetchPolicy: "network-only" },
+    watchQuery: { fetchPolicy: "network-only" },
   },
 });
 
